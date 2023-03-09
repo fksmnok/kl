@@ -1,0 +1,57 @@
+<%- include('partials/header.ejs'); %>
+    <main>
+        <article id="mypage">
+            <a href="/top">mypage</a>
+            <a href="/edit">編集</a>
+
+            <img src="/img/<%= user.id %>/<%= pick[0].note_name %>" class="card-img-top">
+            <h5 class="card-title">
+                <%= pick[0].item %>
+            </h5>
+            <p class="card-text">
+                <%- pick[0].appeal %>
+            </p>
+            <p class="card-text">
+                <%= pick[0].time.toLocaleString() %>
+            </p>
+            <p class="card-text" id="like">
+                いいね：<%= pick[0].like_num %>
+            </p>
+            <input type="hidden" id="userId" value="<%= user.id %>">
+            <input type="hidden" id="id" value="<%= pick[0].id %>">
+            <input type="hidden" id="item" value="<%= pick[0].item %>">
+            <input type="hidden" id="appeal" value="<%= pick[0].appeal %>">
+            <input type="hidden" id="note_name" value="<%= pick[0].note_name %>">
+
+            
+                        <p>コメント</p>
+                        <p id="rep"></p>
+                        <input type="hidden" id="reply_id" value="">
+                        <input type="hidden" id="reply_name" value="">
+                        <!-- <input type="text" id="comment" required> -->
+                        <input type="hidden" id="pickId" value="<%= pickId %>">
+                        <input type="hidden" id="sId" value="<%= pick[0].student_id %>">
+                        <p id="rep"></p>
+                        <!-- <div id="cd"><input type="submit" id="cbutton" value="送信"></div><br>
+                        <div id="cd"><input type="submit" id="rbutton" value="返信"></div><br> -->
+                        <% for (let key in comment){ %>
+                            <div id="output"
+                                onclick="reply('<%= comment[key].user_name %>', '<%= comment[key].id %>');">
+                                <%= comment[key].comment %>
+                                    <%= comment[key].date.toLocaleString() %><br>
+                            </div>
+                            <% for (let k in reply) { %>
+                                <% if (comment[key].id==reply[k].rep_id) { %>
+                                    <div id="output2"
+                                        onclick="reply('<%= reply[k].user_name %>', '<%= reply[k].rep_id %>');">
+                                        返信:<%= reply[k].comment %>
+                                            <%= reply[k].time.toLocaleString() %><br>
+                                    </div>
+                                    <% } %>
+                                        <% } %>
+                                            <% } %>
+                                                <hr>
+                                                <a href="/all">一覧</a>
+    </main>
+
+    <%- include('partials/footer.ejs'); %>

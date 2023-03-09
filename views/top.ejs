@@ -1,0 +1,121 @@
+<%- include('partials/header.ejs'); %>
+    <main>
+        <article id="intro">
+            <!-- <h3 id="myname">name</h3> -->
+            <section id="myimage">
+                <img src="<%= user.pictureUrl %>" id="photo">
+                <a href="https://www.instagram.com/<%= user_info[0].insta %>" target="_blank"><img
+                        src="img/icons8-インスタグラム-96.svg" id="insta"></a>
+            </section>
+            <section id="myinfo">
+                <p>
+                    <%= user.displayName %>
+                </p>
+                <p>
+                    <%= user_info[0].school %>
+                </p>
+                <p>
+                    <%= user_info[0].profile %>
+                </p>
+            </section>
+        </article>
+
+        <div class="tab-wrap">
+            <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" />
+            <label class="tab-label" for="TAB-01"><img src="img/icons8-画像-50.png"></label>
+            <div class="tab-content">
+                <div class="cp_ipselect">
+                    <select class="cp_sl02" required>
+                        <option value="関係法令・制度">関係法令・制度</option>
+                        <option value="公衆衛生・環境衛生">公衆衛生・環境衛生</option>
+                        <option value="感染症">感染症</option>
+                        <option value="衛生管理技術">衛生管理技術</option>
+                        <option value="人体の構造及び機能">人体の構造及び機能</option>
+                        <option value="皮膚化学">皮膚化学</option>
+                        <option value="美容の物理と化学">美容の物理と化学</option>
+                        <option value="美容理論">美容理論</option>
+                    </select>
+                </div>
+                <article id="mynote">
+                    <% for (let key in upload_note){ %>
+                        <section id="mypost">
+                            <a href="/note/<%= upload_note[key].id %>" style="text-decoration:none;">
+                                <%= upload_note[key].name %>
+                                <img src="/img/<%= user.id %>/<%= upload_note[key].note_name %>" id="topnote">
+                                <div id="myitem">
+                                    <img src="img/icons8-コメント-48.png" id="cl">
+                                    <p>
+                                        <%= upload_note[key].com_num %>
+                                    </p>
+                                    <img src="img/icons8-いいね-50.png" id="cl">
+                                    <p>
+                                        <%= upload_note[key].like_num %>
+                                    </p>
+                                </div>
+                            </a>
+                        </section>
+                        <% } %>
+                </article>
+            </div>
+            <input id="TAB-02" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-02"><img
+                    src="img/icons8-いいね-50.png"></label>
+            <div class="tab-content">
+                <article id="mynote">
+                    <% for (let key in like_note){ %>
+                        <section id="mypost">
+                            <a href="#" style="text-decoration:none;">name
+                                <img src="/img/<%= user.id %>/<%= like_note[key].note_name %>" id="topnote">
+                                <div id="myitem">
+                                    <img src="img/icons8-コメント-48.png" id="cl">
+                                    <p>
+                                        
+                                    </p>
+                                    <img src="img/icons8-いいね-50.png" id="cl">
+                                    <p></p>
+                                </div>
+                            </a>
+                        </section>
+                        <% } %>
+                </article>
+            </div>
+            <input id="TAB-03" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-03"><img
+                    src="img/icons8-アップロード-48.png" alt=""></label>
+
+
+            <div class="tab-content">
+                <p>アップロード</p>
+                <form action="/upload" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="userId" value="<%= user.id %>">
+                    <select class="form-select" aria-label="Default select example" id="upselect" name="item">
+                        <option value="関係法令・制度">関係法令・制度</option>
+                        <option value="公衆衛生・環境衛生">公衆衛生・環境衛生</option>
+                        <option value="感染症">感染症</option>
+                        <option value="衛生管理技術">衛生管理技術</option>
+                        <option value="人体の構造及び機能">人体の構造及び機能</option>
+                        <option value="皮膚化学">皮膚化学</option>
+                        <option value="美容の物理と化学">美容の物理と化学</option>
+                        <option value="美容理論">美容理論</option>
+                    </select>
+                    <div class="mb-3">
+                        <input type="file" class="form-control" id="formFile" name="file" accept="image/*" multiple required>
+                    </div>
+                    <div class="input-group" id="upcomment">
+                        <span class="input-group-text">コメント</span>
+                        <textarea class="form-control" aria-label="With textarea" name="appeal"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--orange">投稿</button>
+                </form>
+            </div>
+            <input id="TAB-04" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-04"><img
+                    src="img/icons8-設定-50.png" alt=""></label>
+            <div class="tab-content">
+                <a href="/setting">ユーザー情報変更</a>
+            </div>
+        </div>
+        <article id="fixed">
+            <a href="/top"><img src="img/ホームアイコン.svg" alt=""></a>
+            <a href="/search"><img src="img/検索用の虫眼鏡アイコン素材.svg" alt=""></a>
+            <a href="/all"><img src="img/ハサミのフリー素材10.svg" alt=""></a>
+        </article>
+    </main>
+    <%- include('partials/footer.ejs'); %>

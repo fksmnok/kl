@@ -1,0 +1,166 @@
+<%- include('partials/header.ejs'); %>
+    <main>
+        <div class="cp_ipselect">
+            <select class="cp_sl02" required>
+                <option value="関係法令・制度">関係法令・制度</option>
+                <option value="公衆衛生・環境衛生">公衆衛生・環境衛生</option>
+                <option value="感染症">感染症</option>
+                <option value="衛生管理技術">衛生管理技術</option>
+                <option value="人体の構造及び機能">人体の構造及び機能</option>
+                <option value="皮膚化学">皮膚化学</option>
+                <option value="美容の物理と化学">美容の物理と化学</option>
+                <option value="美容理論">美容理論</option>
+            </select>
+        </div>
+
+        関係法令
+        <article id="mynote">
+            <% for (let key in note_item1){ %>
+            <section id="mypost">
+                <a href="/pick/<%= note_item1[key].id %>" style="text-decoration:none;">name
+                    <img src="/img/<%= note_item1[key].student_id %>/<%= note_item1[key].note_name %>" id="topnote">
+                    <div id="myitem">
+                        <img src="img/icons8-コメント-48.png" id="cl">
+                        <p><%= note_item1[key].like_num %></p>
+                        <img src="img/icons8-いいね-50.png" id="cl">
+                        <p><%= note_item1[key].like_num %></p>
+                    </div>
+                </a>
+                <!-- <p><%= note_item1[key].time.toLocaleString() %></p> -->
+            </section>
+            <% } %>
+        </article>
+
+        公衆衛生
+        <article id="mynote">
+            <% for (let key in note_item2){ %>
+            <section id="mypost">
+                <a href="/pick/<%= note_item2[key].id %>" style="text-decoration:none;">name
+                    <img src="/img/<%= note_item2[key].student_id %>/<%= note_item2[key].note_name %>" id="topnote">
+                    <div id="myitem">
+                        <img src="img/icons8-コメント-48.png" id="cl">
+                        <p><%= note_item2[key].like_num %></p>
+                        <img src="img/icons8-いいね-50.png" id="cl">
+                        <p><%= note_item2[key].like_num %></p>
+                    </div>
+                </a>
+                <!-- <p><%= note_item1[key].time.toLocaleString() %></p> -->
+            </section>
+            <% } %>
+        </article>
+
+        感染症
+        <article id="mynote">
+            <% for (let key in note_item3){ %>
+            <section id="mypost">
+                <a href="/pick/<%= note_item3[key].id %>" style="text-decoration:none;">name
+                    <img src="/img/<%= note_item3[key].student_id %>/<%= note_item3[key].note_name %>" id="topnote">
+                    <div id="myitem">
+                        <img src="img/icons8-コメント-48.png" id="cl">
+                        <p><%= note_item3[key].like_num %></p>
+                        <img src="img/icons8-いいね-50.png" id="cl">
+                        <p><%= note_item3[key].like_num %></p>
+                    </div>
+                </a>
+                <!-- <p><%= note_item1[key].time.toLocaleString() %></p> -->
+            </section>
+            <% } %>
+        </article>
+
+        衛生管理技術
+        <article id="mynote">
+            <% for (let key in note_item4){ %>
+            <section id="mypost">
+                <a href="/pick/<%= note_item4[key].id %>" style="text-decoration:none;">name
+                    <img src="/img/<%= note_item4[key].student_id %>/<%= note_item4[key].note_name %>" id="topnote">
+                    <div id="myitem">
+                        <img src="img/icons8-コメント-48.png" id="cl">
+                        <p><%= note_item4[key].like_num %></p>
+                        <img src="img/icons8-いいね-50.png" id="cl">
+                        <p><%= note_item4[key].like_num %></p>
+                    </div>
+                </a>
+                <!-- <p><%= note_item1[key].time.toLocaleString() %></p> -->
+            </section>
+            <% } %>
+        </article>
+
+        人体の構造
+        <article id="mynote">
+            <% for (let key in note_item5){ %>
+            <section id="mypost">
+                <a href="/pick/<%= note_item5[key].id %>" style="text-decoration:none;">name
+                    <img src="/img/<%= note_item5[key].student_id %>/<%= note_item5[key].note_name %>" id="topnote">
+                    <div id="myitem">
+                        <img src="img/icons8-コメント-48.png" id="cl">
+                        <p><%= note_item5[key].like_num %></p>
+                        <img src="img/icons8-いいね-50.png" id="cl">
+                        <p><%= note_item5[key].like_num %></p>
+                    </div>
+                </a>
+                <!-- <p><%= note_item1[key].time.toLocaleString() %></p> -->
+            </section>
+            <% } %>
+        </article>
+
+        皮膚科学
+        <article id="mynote">
+            <% for (let key in note_item6){ %>
+            <section id="mypost">
+                <a href="/pick/<%= note_item6[key].id %>" style="text-decoration:none;">name
+                    <img src="/img/<%= note_item6[key].student_id %>/<%= note_item6[key].note_name %>" id="topnote">
+                    <div id="myitem">
+                        <img src="img/icons8-コメント-48.png" id="cl">
+                        <p><%= note_item6[key].like_num %></p>
+                        <img src="img/icons8-いいね-50.png" id="cl">
+                        <p><%= note_item6[key].like_num %></p>
+                    </div>
+                </a>
+                <!-- <p><%= note_item1[key].time.toLocaleString() %></p> -->
+            </section>
+            <% } %>
+        </article>
+
+        美容の物理
+        <article id="mynote">
+            <% for (let key in note_item7){ %>
+            <section id="mypost">
+                <a href="/pick/<%= note_item7[key].id %>" style="text-decoration:none;">name
+                    <img src="/img/<%= note_item7[key].student_id %>/<%= note_item7[key].note_name %>" id="topnote">
+                    <div id="myitem">
+                        <img src="img/icons8-コメント-48.png" id="cl">
+                        <p><%= note_item7[key].like_num %></p>
+                        <img src="img/icons8-いいね-50.png" id="cl">
+                        <p><%= note_item7[key].like_num %></p>
+                    </div>
+                </a>
+                <!-- <p><%= note_item1[key].time.toLocaleString() %></p> -->
+            </section>
+            <% } %>
+        </article>
+
+        美容理論
+        <article id="mynote">
+            <% for (let key in note_item8){ %>
+            <section id="mypost">
+                <a href="/pick/<%= note_item8[key].id %>" style="text-decoration:none;">name
+                    <img src="/img/<%= note_item8[key].student_id %>/<%= note_item8[key].note_name %>" id="topnote">
+                    <div id="myitem">
+                        <img src="img/icons8-コメント-48.png" id="cl">
+                        <p><%= note_item8[key].like_num %></p>
+                        <img src="img/icons8-いいね-50.png" id="cl">
+                        <p><%= note_item8[key].like_num %></p>
+                    </div>
+                </a>
+                <!-- <p><%= note_item1[key].time.toLocaleString() %></p> -->
+            </section>
+            <% } %>
+        </article>
+    
+        <article id="fixed">
+            <a href="/top"><img src="img/ホームアイコン.svg" alt=""></a>
+            <a href="/search"><img src="img/検索用の虫眼鏡アイコン素材.svg" alt=""></a>
+            <a href="/all"><img src="img/ハサミのフリー素材10.svg" alt=""></a>
+        </article>
+    </main>
+    <%- include('partials/footer.ejs'); %>

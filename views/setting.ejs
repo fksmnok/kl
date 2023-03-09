@@ -1,0 +1,70 @@
+<%- include('partials/header.ejs'); %>
+    <main>
+        <div id="output"></div>
+        <article id="setting">
+            <div class="pick-wrap">
+                <section id="set">
+                    <p>プロフィール画像はLINEから変更できます。</p>
+                    <div class="mb-3" id="upselect">
+                        <label for="exampleFormControlInput1" class="form-label">インスタ</label>
+                        <input type="text" class="form-control" id="inst" value="<%= set[0].insta %>" placeholder="tishiki2023">
+                    </div>
+                    <div class="mb-3" id="upselect">
+                        <label for="exampleFormControlInput1" class="form-label">学校名</label>
+                        <input type="text" class="form-control" id="school" value="<%= set[0].school %>" placeholder="abc美容学校">
+                    </div>
+                    <div class="input-group" id="upcomment">
+                        <span class="input-group-text">自己紹介</span>
+                        <textarea class="form-control" aria-label="With textarea"><%- set[0].profile %></textarea>
+                    </div>
+                    <button type="submit" id="postbutton" class="btn btn--orange">変更</button>
+                </section>
+            </div>
+        </article>
+
+        <article id="fixed">
+            <article id="fixed">
+                <a href="/top"><img src="img/ホームアイコン.svg" alt=""></a>
+                <a href="/search"><img src="img/検索用の虫眼鏡アイコン素材.svg" alt=""></a>
+                <a href="/all"><img src="img/ハサミのフリー素材10.svg" alt=""></a>
+            </article>
+        </article>
+    </main>
+
+    <script>
+
+        //変更処理
+        $('#postbutton').click(function (e) {
+            let value1 = {
+                disName: $('#disName').val(),
+                insta: $('#inst').val(),
+                pref: $('#pref').val(),
+                school: $('#school').val(),
+                profile: $('#profile').val()
+            };
+
+            console.log(value1);
+
+            $.ajax({
+                type: "POST",
+                data: value1,
+                url: "/set",
+            }).done(function (results) {
+                console.log(results);
+                function nl2br(str) {
+                    str = str.replace(/\r\n/g, "");
+                    str = str.replace(/(\n|\r)/g, "");
+                    return str;
+                }
+                $('#output').append('変更しました。<br>');
+                $('#disName').val(results.disname)
+                $('#inst').val(results.insta)
+                $('#pref').val(results.pref)
+                $('#school').val(results.school)
+                $('#profile').val(nl2br(results.profile))
+            }).fail(function (xhr, textStatus, errorThrown) {
+                console.log('失敗');
+            }).always(function (xhr) { });
+        });
+    </script>
+    <%- include('partials/footer.ejs'); %>
