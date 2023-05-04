@@ -15,7 +15,7 @@ app.set("views", "./views");
 app.use(fileUpload());
 
 app.use(express.static(__dirname + "/public", { index: false }))
-//app.use(express.static(__dirname + "/views", { index: false }))
+app.use(express.static(__dirname + "/views", { index: false }))
 
 declare module "express" {
     export interface Request {
@@ -26,9 +26,6 @@ declare module "express" {
 /*-------------------DB--------------------*/
 const { createConnection } = require("mysql"); // ライブラリのimport
 import { Connection, MysqlError } from "mysql"; // 型定義のimport
-// import { userInfo } from 'os';
-// import internal from 'stream';
-// const { exit } = require('process');
 
 const con: Connection = createConnection({
     host: 'localhost',
