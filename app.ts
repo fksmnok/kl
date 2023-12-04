@@ -40,8 +40,8 @@ const con: Connection = createConnection({
 /*-------------------LINE認証--------------------*/
 
 passport.use(new LineStrategy({
-    channelID: '1657645231',
-    channelSecret: '60cad8c38eccb107bb9b719cf9a0836c',
+    channelID: '###',
+    channelSecret: '###',
     callbackURL: 'http://localhost:3000/auth/line/callback',
     scope: ['profile', 'openid', 'email'],
     botPrompt: 'aggressive'
